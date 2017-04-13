@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_listareclamos"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Lista de Reclamos" />
+        <item
+            android:id="@+id/nav_registroReclamo"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Registrar Reclamo" />
+        <item
+            android:id="@+id/nav_notificacion"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Ver Notificacion" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Salir" />
+        </menu>
+    </item>
+
+</menu>
