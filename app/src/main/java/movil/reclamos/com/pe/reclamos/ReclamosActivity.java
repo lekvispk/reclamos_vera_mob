@@ -19,6 +19,7 @@ import java.util.Hashtable;
 
 import movil.reclamos.com.pe.reclamos.beans.Parametro;
 import movil.reclamos.com.pe.reclamos.database.ReclamosDBHelper;
+import movil.reclamos.com.pe.reclamos.rest.beans.Factura;
 import movil.reclamos.com.pe.reclamos.rest.beans.Reclamo;
 import movil.reclamos.com.pe.reclamos.rest.beans.RespuestaRest;
 import movil.reclamos.com.pe.reclamos.rest.beans.Usuario;
@@ -63,7 +64,8 @@ public class ReclamosActivity extends AppCompatActivity {
         registroTask.execute(
                         txtObservacion.getText().toString() ,
                         txtAsunto.getText().toString(),
-                        usuarioActivo.getIdCliente().toString()
+                        usuarioActivo.getIdCliente().toString(),
+                        txtFactura.getText().toString()
                     );
     }
 
@@ -90,6 +92,9 @@ public class ReclamosActivity extends AppCompatActivity {
             reclamo.setMensaje( params[0] );
             reclamo.setAsunto( params[1] );
             reclamo.setIdCliente( Integer.valueOf(params[2]) );
+            reclamo.setFactura( new Factura());
+            reclamo.getFactura().setIdFactura(1);
+            reclamo.getFactura().setNumero( params[3] );
 
             try {
                 rpta = enviarDatosDeRclamo( reclamo );
