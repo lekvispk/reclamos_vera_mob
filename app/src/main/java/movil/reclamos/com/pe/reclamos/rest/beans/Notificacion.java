@@ -1,96 +1,78 @@
 package movil.reclamos.com.pe.reclamos.rest.beans;
 
-import java.util.HashMap;
-import java.util.Map;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-"idNotificacion",
-"cliente",
-"asunto",
-"notificacion",
-"created_at",
-"estado"
+        "razonSocial",
+        "representante",
+        "fechaReclamo",
+        "asuntoReclamo",
+        "respuestaReclamo"
 })
 public class Notificacion {
 
-    @JsonProperty("idNotificacion")
-    private Integer idNotificacion;
-    @JsonProperty("cliente")
-    private Cliente cliente;
-    @JsonProperty("asunto")
-    private String asunto;
-    @JsonProperty("notificacion")
-    private String notificacion;
-    @JsonProperty("created_at")
-    private String createdAt;
-    @JsonProperty("estado")
-    private Integer estado;
+    @JsonProperty("razonSocial")
+    private String razonSocial;
+    @JsonProperty("representante")
+    private String representante;
+    @JsonProperty("fechaReclamo")
+    private String fechaReclamo;
+    @JsonProperty("asuntoReclamo")
+    private String asuntoReclamo;
+    @JsonProperty("respuestaReclamo")
+    private String respuestaReclamo;
 
-    @JsonProperty("idNotificacion")
-    public Integer getIdNotificacion() {
-    return idNotificacion;
+    @JsonProperty("razonSocial")
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
-    @JsonProperty("idNotificacion")
-    public void setIdNotificacion(Integer idNotificacion) {
-    this.idNotificacion = idNotificacion;
+    @JsonProperty("razonSocial")
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
     }
 
-    @JsonProperty("cliente")
-    public Cliente getCliente() {
-    return cliente;
+    @JsonProperty("representante")
+    public String getRepresentante() {
+        return representante;
     }
 
-    @JsonProperty("cliente")
-    public void setCliente(Cliente cliente) {
-    this.cliente = cliente;
+    @JsonProperty("representante")
+    public void setRepresentante(String representante) {
+        this.representante = representante;
     }
 
-    @JsonProperty("asunto")
-    public String getAsunto() {
-    return asunto;
+    @JsonProperty("fechaReclamo")
+    public String getFechaReclamo() {
+        return fechaReclamo;
     }
 
-    @JsonProperty("asunto")
-    public void setAsunto(String asunto) {
-    this.asunto = asunto;
+    @JsonProperty("fechaReclamo")
+    public void setFechaReclamo(String fechaReclamo) {
+        this.fechaReclamo = fechaReclamo;
     }
 
-    @JsonProperty("notificacion")
-    public String getNotificacion() {
-    return notificacion;
+    @JsonProperty("asuntoReclamo")
+    public String getAsuntoReclamo() {
+        return asuntoReclamo;
     }
 
-    @JsonProperty("notificacion")
-    public void setNotificacion(String notificacion) {
-    this.notificacion = notificacion;
+    @JsonProperty("asuntoReclamo")
+    public void setAsuntoReclamo(String asuntoReclamo) {
+        this.asuntoReclamo = asuntoReclamo;
     }
 
-    @JsonProperty("created_at")
-    public String getCreatedAt() {
-    return createdAt;
+    @JsonProperty("respuestaReclamo")
+    public String getRespuestaReclamo() {
+        return respuestaReclamo;
     }
 
-    @JsonProperty("created_at")
-    public void setCreatedAt(String createdAt) {
-    this.createdAt = createdAt;
-    }
-
-    @JsonProperty("estado")
-    public Integer getEstado() {
-    return estado;
-    }
-
-    @JsonProperty("estado")
-    public void setEstado(Integer estado) {
-    this.estado = estado;
+    @JsonProperty("respuestaReclamo")
+    public void setRespuestaReclamo(String respuestaReclamo) {
+        this.respuestaReclamo = respuestaReclamo;
     }
 
 }

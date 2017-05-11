@@ -72,7 +72,7 @@ public class ReclamosActivity extends AppCompatActivity {
     public class HttpRequestRegistraReclamoTask extends AsyncTask<String, Void, RespuestaRest> {
 
         private static final String _TAG_ = "HttpLic";
-        private String url = "http://"+ ip +":8080/reclamos/rest/clientes/reclamos/";
+        private String url = "http://"+ ip +"/reclamos/rest/clientes/reclamos/";
         private String errMsg = "";
 
         public RespuestaRest enviarDatosDeRclamo(Reclamo reclamo){

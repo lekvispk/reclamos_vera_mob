@@ -311,7 +311,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     public class HttpRequestLoginInternTask extends AsyncTask<String, Void, Usuario> {
 
         private static final String _TAG_ = "HttpLic";
-        private String url = "http://"+ ip +":8080/reclamos/rest/auth/basic/{USUARIO}";
+        private String url = "http://"+ ip +"/reclamos/rest/auth/basic/{USUARIO}";
         private String errMsg = "";
 
         public Usuario obtenerDatosPorUsernameOEmail(String username){

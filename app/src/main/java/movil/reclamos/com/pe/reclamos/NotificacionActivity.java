@@ -24,15 +24,17 @@ public class NotificacionActivity extends AppCompatActivity {
     private static final String _TAG_ = "NOTIFICA";
     private ReclamosDBHelper dbHelper;
     private String ip;
-    private TextView lblAsunto,lblFecha,lblNotificacion;
+    private TextView lblRazon, lblAsunto, lblFecha, lblRepresentante, lblNotificacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificacion);
 
+        lblRazon = (TextView) findViewById(R.id.txtRazon);
         lblAsunto = (TextView) findViewById(R.id.lblAsunto);
         lblFecha = (TextView) findViewById(R.id.lblFecha);
+        lblRepresentante = (TextView) findViewById(R.id.lblRepresentante);
         lblNotificacion = (TextView) findViewById(R.id.lblNotificacion);
 
         dbHelper = new ReclamosDBHelper( this );
@@ -56,7 +58,7 @@ public class NotificacionActivity extends AppCompatActivity {
     public class HttpRequestNotificacionesInternTask extends AsyncTask<String, Void, Notificacion> {
 
         private static final String _TAG_ = "HttpLic";
-        private String url = "http://"+ ip +":8080/reclamos/rest/clientes/{ID_USUARIO}/notificaciones";
+        private String url = "http://"+ ip +"/reclamos/rest/clientes/{ID_USUARIO}/notificaciones";
         private String errMsg = "";
 
         public Notificacion obtenerNotificacion(String idUsuario){
@@ -96,16 +98,20 @@ public class NotificacionActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Notificacion notificacion) {
-            if( notificacion != null && notificacion.getIdNotificacion() != null){
+            if( notificacion != null && notificacion.getAsuntoReclamo() != null){
 
-                    lblFecha.setText( notificacion.getCreatedAt()+ "" );
-                    lblAsunto.setText( notificacion.getAsunto() + "" );
-                    lblNotificacion.setText( notificacion.getNotificacion() + "" );
+                lblRazon.setText( notificacion.getRazonSocial()+ "" );
+                lblFecha.setText( notificacion.getFechaReclamo()+ "" );
+                lblAsunto.setText( notificacion.getAsuntoReclamo() + "" );
+                lblRepresentante.setText( notificacion.getRepresentante()+ "" );
+                lblNotificacion.setText( notificacion.getRespuestaReclamo() + "" );
 
             }else{
                 String mensaje = "No se pudo obtener la notificacion" ;
-                lblFecha.setText(  "No se pudo obtener la notificacion" );
+                lblRazon.setText("");
+                lblFecha.setText( mensaje );
                 lblAsunto.setText( "" );
+                lblRepresentante.setText("");
                 lblNotificacion.setText( "" );
                 if(!errMsg.equals("")) mensaje = errMsg;
                 Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT).show();

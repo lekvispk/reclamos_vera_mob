@@ -47,10 +47,10 @@ public class ConfigActivity extends AppCompatActivity {
             Log.d(_TAG_, " modificar ip " );
             Log.d(_TAG_, " ip ID = "  + ipActual.getId());
             ip.setId( ipActual.getId());
-            dbHelper.updateReclamo( ip );
+            dbHelper.updateParametro( ip );
         }else{
             Log.d(_TAG_, "nueva ip" );
-            dbHelper.saveReclamo( ip );
+            dbHelper.saveParametro( ip );
         }
 
         Intent intent = null;

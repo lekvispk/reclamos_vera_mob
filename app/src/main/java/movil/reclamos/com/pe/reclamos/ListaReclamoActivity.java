@@ -96,7 +96,7 @@ public class ListaReclamoActivity extends AppCompatActivity {
     public class HttpRequestLicenciasInternTask extends AsyncTask<String, Void, Reclamo[]> {
 
         private static final String _TAG_ = "HttpLic";
-        private String url = "http://"+ ip +":8080/reclamos/rest/clientes/{ID_USUARIO}/reclamos";
+        private String url = "http://"+ ip +"/reclamos/rest/clientes/{ID_USUARIO}/reclamos";
         private String errMsg = "";
 
         public Reclamo[] obtenerReclamos(String idUsuario){

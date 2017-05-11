@@ -72,9 +72,9 @@ public class ReclamosDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public long saveReclamo(Parametro parametro) {
+    public long saveParametro(Parametro parametro) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        Log.d( _TAG_ , " Insertar parametro  = " + parametro.toContentValues() );
+        Log.d( _TAG_ , "saveParametro  = " + parametro.toContentValues() );
         return sqLiteDatabase.insert(
                 ReclamoContract.ParametrosEntry.TABLE_NAME,
                 null,
@@ -82,9 +82,9 @@ public class ReclamosDBHelper extends SQLiteOpenHelper {
 
     }
 
-    public long updateReclamo(Parametro parametro) {
+    public long updateParametro(Parametro parametro) {
         SQLiteDatabase sqLiteDatabase = getWritableDatabase();
-        Log.d( _TAG_ , " Insertar parametro  = " + parametro.toContentValues() );
+        Log.d( _TAG_ , "updateParametro  = " + parametro.toContentValues() );
 
         String[] params = new String[1];
         params[0] = parametro.getId().toString();
