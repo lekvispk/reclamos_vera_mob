@@ -357,19 +357,29 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 movil.reclamos.com.pe.reclamos.beans.Usuario u = new movil.reclamos.com.pe.reclamos.beans.Usuario();
                 u.setId( dbHelper.getSiguienteIdUsuario() );
+                Log.v("auth", "siguiente ID = "  + u.getId() );
                 u.setUsername( user.getUsername() );
                 u.setCorreo( user.getEmail() );
                 u.setNombres( user.getPersona().getNombres() );
                 u.setApellidos( user.getPersona().getApePaterno() );
                 u.setIdPersona( user.getPersona().getIdPersona() );
                 u.setIdCliente( user.getPersona().getCliente().getIdCliente() );
+                u.setRuc( user.getPersona().getCliente().getRucCliente() );
+                u.setRepresentante( user.getPersona().getCliente().getRepresentante() );
                 u.setEstado( 1 );
-                dbHelper.saveUsuario( u );
+                long newId = dbHelper.saveUsuario( u );
+                Log.v("auth", "registro de usuario fianlizado. Nuevo id  = " + newId);
+                if( newId > 0l ){
 
-                Log.v("auth", "autenticacion satisfactoria, mostrar home");
-                Toast.makeText(getApplicationContext(), "Autenticacion satisfactoria", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-                startActivityForResult(intent, REQUEST_READ_CONTACTS);
+                    Log.v("auth", "autenticacion satisfactoria, mostrar home");
+                    Toast.makeText(getApplicationContext(), "Autenticacion satisfactoria", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivityForResult(intent, REQUEST_READ_CONTACTS);
+
+                }else{
+                    Log.v("auth", "ERROR : usario no registrado ");
+                    Toast.makeText(getApplicationContext(), "Error: usuario no registrado en BD", Toast.LENGTH_SHORT).show();
+                }
 
             }else{
                 String mensaje = "No se pudo obtenerel usuario" ;

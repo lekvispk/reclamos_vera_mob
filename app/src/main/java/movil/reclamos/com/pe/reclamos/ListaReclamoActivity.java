@@ -88,8 +88,15 @@ public class ListaReclamoActivity extends AppCompatActivity {
         //showProgress(true);
 
         Usuario user = dbHelper.getUsuario();
-        HttpRequestLicenciasInternTask http = new HttpRequestLicenciasInternTask();
-        http.execute( user.getIdCliente()+"" );
+        Log.v(_TAG_, "usuario = " + user );
+
+        if( user != null){
+            HttpRequestLicenciasInternTask http = new HttpRequestLicenciasInternTask();
+            http.execute( user.getIdCliente()+"" );
+        }else{
+            Toast.makeText(getApplicationContext(), "Error: no se ha obtenido ningun usuario", Toast.LENGTH_SHORT).show();
+        }
+
         Log.v(_TAG_, "getData FIN");
     }
 

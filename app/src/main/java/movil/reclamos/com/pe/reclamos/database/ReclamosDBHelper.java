@@ -32,6 +32,8 @@ public class ReclamosDBHelper extends SQLiteOpenHelper {
             "  apellidos VARCHAR NULL," +
             "  correo VARCHAR NULL," +
             "  estado INTEGER NULL," +
+            "  ruc VARCHAR NULL," +
+            "  representante VARCHAR NULL," +
             "  PRIMARY KEY(id)" +
             ")" ;
 
@@ -128,6 +130,7 @@ public class ReclamosDBHelper extends SQLiteOpenHelper {
      * @return usuario activo en el sistema
      */
     public Usuario getUsuario( ){
+        Log.d(_TAG_,"getUsuario - INI" );
         SQLiteDatabase db = this.getReadableDatabase();
 
         StringBuilder query = new StringBuilder("");
@@ -148,9 +151,15 @@ public class ReclamosDBHelper extends SQLiteOpenHelper {
             usuario.setEstado( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.ESTADO)) );
             usuario.setIdPersona( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.IDPERSONA)) );
             usuario.setIdCliente( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.IDCLIENTE)) );
+            usuario.setRuc( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.RUC)) );
+            usuario.setRepresentante( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.REPRESENTANTE)) );
             Log.d(_TAG_," usuario obtenido " );
+        }else{
+            Log.d(_TAG_,"no hay usuario en BD...... verificar" );
         }
 
+
+        Log.d(_TAG_,"getUsuario - FIN" );
         return usuario;
     }
 
@@ -226,7 +235,36 @@ public class ReclamosDBHelper extends SQLiteOpenHelper {
        /* return db.delete(LicenciaContract.UsuarioEntry.TABLE_NAME, LicenciaContract.UsuarioEntry.ID + " = ? ", new String[] { Integer.toString(id) } );*/
         ContentValues contentValues = new ContentValues();
         contentValues.put(ReclamoContract.UsuarioEntry.ESTADO,0);
-        return db.update(ReclamoContract.UsuarioEntry.TABLE_NAME, contentValues, "id = ? ", new String[] { id.toString() } );
+
+        int res = db.update(ReclamoContract.UsuarioEntry.TABLE_NAME, contentValues, "id = ? ", new String[] { id.toString() } );
+        Log.v(_TAG_, "c antidad registros modificados  = " + res );
+        return res;
+    }
+
+    public void verUsarios() {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        StringBuilder query = new StringBuilder("select * from ");
+        query.append(ReclamoContract.UsuarioEntry.TABLE_NAME);
+        query.append(" where ").append(ReclamoContract.UsuarioEntry.ESTADO).append("=1");
+        Cursor c =  db.rawQuery(query.toString() , null );
+
+        Usuario usuario=null;
+        while(c.moveToNext()){
+            usuario = new Usuario();
+            usuario.setId( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.ID)) );
+            usuario.setNombres( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.NOMBRES)) );
+            usuario.setApellidos( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.APELLIDOS)) );
+            usuario.setUsername( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.USERNAME)) );
+            usuario.setCorreo( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.CORREO)) );
+            usuario.setEstado( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.ESTADO)) );
+            usuario.setIdPersona( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.IDPERSONA)) );
+            usuario.setIdCliente( c.getInt(c.getColumnIndex(ReclamoContract.UsuarioEntry.IDCLIENTE)) );
+            usuario.setRuc( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.RUC)) );
+            usuario.setRepresentante( c.getString(c.getColumnIndex(ReclamoContract.UsuarioEntry.REPRESENTANTE)) );
+            Log.d(_TAG_,"   " + usuario.toString() );
+        }
+
     }
 
     /*** USUARIOS FIN */

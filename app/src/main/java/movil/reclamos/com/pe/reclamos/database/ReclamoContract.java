@@ -24,6 +24,8 @@ public class ReclamoContract {
         public static final String CORREO = "correo";
         public static final String IDPERSONA = "id_persona";
         public static final String IDCLIENTE = "id_cliente";
+        public static final String RUC = "ruc";
+        public static final String REPRESENTANTE = "representante";
         public static final String ESTADO = "estado";
     }
 

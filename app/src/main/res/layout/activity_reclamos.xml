@@ -2,6 +2,7 @@
 
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/scrollview"
@@ -22,30 +23,42 @@
     tools:context="movil.reclamos.com.pe.reclamos.ReclamosActivity"
     android:weightSum="1">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/txtRuc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="RUC"
+                android:inputType="number"
+                android:maxLength="11" />
+
+        </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+
+
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/txtRuc"
+            android:id="@+id/txtRepresentante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="RUC"
-            android:inputType="number"
-            android:maxLength="11" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtRepresentante"
-        android:hint="Representante" />
+            android:hint="Representante"
+            android:inputType="textPersonName" />
     </android.support.design.widget.TextInputLayout>
 
     <android.support.design.widget.TextInputLayout
@@ -62,17 +75,11 @@
             tools:inputType="textWebEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
+    <Spinner
+        android:id="@+id/cbFactura"
+        android:spinnerMode="dialog"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtFactura"
-        android:hint="Nro. Factura" />
-    </android.support.design.widget.TextInputLayout>
+        android:layout_height="wrap_content" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"

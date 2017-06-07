@@ -4,119 +4,128 @@
     android:id="@+id/activity_detalle_reclamo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="5dp"
     tools:context="movil.reclamos.com.pe.reclamos.DetalleReclamoActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true">
+        android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
-                android:text="Asunto: "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/lblAsunto"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Asunto: "
                 android:textStyle="normal|bold" />
 
             <TextView
+                android:id="@+id/lblAsuntoContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lblAsuntoContent" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
-                android:text="Factura: "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/lblFactura"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Factura: "
                 android:textStyle="normal|bold" />
 
             <TextView
+                android:id="@+id/lblFacturaContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lblFacturaContent" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
-                android:text="Fec. reclamo: "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/lblFecha"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Fec. reclamo: "
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/lblFechaContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lblFechaContent" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
-                android:text="Prioridad: "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/lblPrioridad"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Prioridad: "
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/lblPrioridadContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lblPrioridadContent" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
-                android:text="Mensaje: "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/lblMensaje"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Mensaje: "
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/lblMensajeContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lblMensajeContent" />
+                android:layout_height="match_parent" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
             <TextView
-                android:text="Vencimiento: "
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
                 android:id="@+id/lblVencimiento"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Vencimiento: "
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/lblVencimientoContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lblVencimientoContent" />
+                android:layout_height="match_parent" />
         </LinearLayout>
     </LinearLayout>
 

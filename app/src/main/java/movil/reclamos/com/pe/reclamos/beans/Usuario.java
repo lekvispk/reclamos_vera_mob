@@ -15,6 +15,8 @@ public class Usuario {
     private Integer estado;
     private Integer idPersona;
     private Integer idCliente;
+    private String ruc;
+    private String representante;
 
     public Integer getId() {
         return id;
@@ -65,6 +67,8 @@ public class Usuario {
         values.put("estado", estado);
         values.put("id_persona", getIdPersona());
         values.put("id_cliente", getIdCliente());
+        values.put("ruc", ruc);
+        values.put("representante", representante);
         return values;
     }
 
@@ -92,5 +96,37 @@ public class Usuario {
 
     public void setIdCliente(Integer idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getRuc() {
+        return ruc;
+    }
+
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
+    }
+
+    public String getRepresentante() {
+        return representante;
+    }
+
+    public void setRepresentante(String representante) {
+        this.representante = representante;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", nombres='" + nombres + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", correo='" + correo + '\'' +
+                ", estado=" + estado +
+                ", idPersona=" + idPersona +
+                ", idCliente=" + idCliente +
+                ", ruc='" + ruc + '\'' +
+                ", representante='" + representante + '\'' +
+                '}';
     }
 }

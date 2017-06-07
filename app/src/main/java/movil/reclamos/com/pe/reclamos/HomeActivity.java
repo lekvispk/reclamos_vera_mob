@@ -144,8 +144,9 @@ public class HomeActivity extends AppCompatActivity
      * Al hacer logout, debe eliminar los registros de la base de datos
      */
     private void logout() {
-
+        Log.v(_TAG_, "logout... eliminar usuario id =  "  + usuarioActivo.getId() );
         dbHelper.deleteUsuario( usuarioActivo.getId() );
+        dbHelper.verUsarios(  );
         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
         finish();
